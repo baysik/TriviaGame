@@ -20,7 +20,7 @@ function startTimer(){
             // if timer hits 0, stop the timer and hide trivia questions
             if (counter < 0){
                 stopTimer();
-                clearQuestions();
+                hideQuestions();
                 $(".time-left").html("<h1 class='text-center count-down main'>Time's Up!</h1>");
             }
             
@@ -30,7 +30,7 @@ function stopTimer(){
     clearInterval(setCountDown);
 }
 
-function clearQuestions(){
+function hideQuestions(){
     $(".trivia-questions").hide();
 }
 
@@ -38,13 +38,17 @@ function clearQuestions(){
 
 // if wrong/correct answer is chosen, update score by 1
 function factCheck(){
-    $("#correct-answer").click(function(){
+    $(".correct-answer").click(function(){
         correctAnswer++
-        $("correct-count").html("Correct: " + correctAnswer)
+        $(".correct-count").html("Correct: " + correctAnswer)
         alert("correct!")
+    });
+    $(".wrong-answer").click(function(){
+        incorrectAnswer++
+        $(".incorrect-count").html("Incorrect: " + incorrectAnswer)
+        alert("Incorrect!")
     })
 }
-
 
 function showTriviaQuestions(){
     $(".trivia-questions").show();
@@ -53,6 +57,6 @@ function showTriviaQuestions(){
 
 // call functions
 showTriviaQuestions();
-clearQuestions();
+hideQuestions();
 startTimerOnClick();
 factCheck();
