@@ -1,3 +1,19 @@
+.main {
+    color: white;
+    text-shadow:
+    -2px -1px 0 #000,
+    2px -1px 0 #000,
+    -2px 1px 0 #000,
+    2px 1px 0 #000;
+}
 .count-down {
     font-size: 100px;
+    font-weight: lighter;
+}
+.btn {
+    background-color: white
+}
+.jumbotron {
+    background-image: url("../images/lickking.jpeg");
+    background-size: cover;
 }

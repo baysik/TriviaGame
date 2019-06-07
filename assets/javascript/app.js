@@ -1,19 +1,27 @@
 var counter = 60;
 var setCountDown;
+var correctAnswer = 0;
+var incorrectAnswer = 0;
 
+// start the time when button is pressed
 function startTimerOnClick() {
     $("#start-game").click(function(){
-        console.log(counter);
+        showTriviaQuestions();
         startTimer();
+        $("#start-game").hide();
     })
 }
+
+// Start the timer
 function startTimer(){
         setCountDown = setInterval(function(){
-            $(".time-left").html("<h1 class='text-center count-down'>" + counter + "s</h1>");
             counter--
+            $(".time-left").html("<h1 class='text-center count-down main'>" + counter + "s</h1>");
+            // if timer hits 0, stop the timer and hide trivia questions
             if (counter < 0){
                 stopTimer();
-                console.log("You Lost!");
+                clearQuestions();
+                $(".time-left").html("<h1 class='text-center count-down main'>Time's Up!</h1>");
             }
             
         },1000)
@@ -22,24 +30,29 @@ function stopTimer(){
     clearInterval(setCountDown);
 }
 
-function showTriviaQuestions(){
-    $("#start-game").click(function(){
-        $(".trivia1").html("Dalaran once rested in Silverpine Forest before being transported to Northrend");
-        $(".triviabuttons1").append("<a class='btn btn-primary btn-lg mr-3' id='start-game' role='button'>True</a>")
-        $(".triviabuttons1").append("<a class='btn btn-danger btn-lg' id='start-game' role='button'>False</a>")
-        $(".trivia2").html("Dalaran once rested in Silverpine Forest before being transported to Northrend");
-        $(".triviabuttons2").append("<a class='btn btn-primary btn-lg mr-3' id='start-game' role='button'>True</a>")
-        $(".triviabuttons2").append("<a class='btn btn-danger btn-lg' id='start-game' role='button'>False</a>")
-        $(".trivia3").html("Dalaran once rested in Silverpine Forest before being transported to Northrend");
-        $(".triviabuttons3").append("<a class='btn btn-primary btn-lg mr-3' id='start-game' role='button'>True</a>")
-        $(".triviabuttons3").append("<a class='btn btn-danger btn-lg' id='start-game' role='button'>False</a>")
-        $(".trivia4").html("Dalaran once rested in Silverpine Forest before being transported to Northrend");
-        $(".triviabuttons4").append("<a class='btn btn-primary btn-lg mr-3' id='start-game' role='button'>True</a>")
-        $(".triviabuttons4").append("<a class='btn btn-danger btn-lg' id='start-game' role='button'>False</a>")
+function clearQuestions(){
+    $(".trivia-questions").hide();
+}
+
+
+
+// if wrong/correct answer is chosen, update score by 1
+function factCheck(){
+    $("#correct-answer").click(function(){
+        correctAnswer++
+        $("correct-count").html("Correct: " + correctAnswer)
+        alert("correct!")
     })
 }
 
-// run functions
 
+function showTriviaQuestions(){
+    $(".trivia-questions").show();
+}
+
+
+// call functions
 showTriviaQuestions();
+clearQuestions();
 startTimerOnClick();
+factCheck();
