@@ -1,3 +1,6 @@
+body {
+    background-image: url("../images/papyrus.png")
+}
 .main {
     color: white;
     text-shadow:

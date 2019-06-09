@@ -1,7 +1,6 @@
-var counter = 60;
+var counter = 30;
 var setCountDown;
 var correctAnswer = 0;
-var incorrectAnswer = 0;
 
 // start the time when button is pressed
 function startTimerOnClick() {
@@ -32,26 +31,45 @@ function stopTimer(){
 
 function hideQuestions(){
     $(".trivia-questions").hide();
+    $("#finished-button").hide();
 }
 
 
-
-// if wrong/correct answer is chosen, update score by 1
-function factCheck(){
-    $(".correct-answer").click(function(){
-        correctAnswer++
-        $(".correct-count").html("Correct: " + correctAnswer)
-        alert("correct!")
-    });
-    $(".wrong-answer").click(function(){
-        incorrectAnswer++
-        $(".incorrect-count").html("Incorrect: " + incorrectAnswer)
-        alert("Incorrect!")
+// calculate score when button is pressed
+$("#finished").click(function(){
+    check();
+})
+// calculate score
+function check(){
+    $("#finished").click(function(){
+        var question1 = $("input[name=question1]:checked").val();
+        var question2 = $("input[name=question2]:checked").val();
+        var question3 = $("input[name=question3]:checked").val();
+        var question4 = $("input[name=question4]:checked").val();
+            if(question1 === "Sin'dorei"){
+                correctAnswer++
+                $(".correct-count").html("You got " + correctAnswer + " out 4 questions correct!")
+            }
+            if(question2 === "False"){
+                correctAnswer++
+                $(".correct-count").html("You got " + correctAnswer + " out 4 questions correct!")
+            }
+            if(question3 === "True"){
+                correctAnswer++
+                $(".correct-count").html("You got " + correctAnswer + " out 4 questions correct!")
+            }
+            if(question4 === "Lady Katrana Prestor"){
+                correctAnswer++
+                $(".correct-count").html("You got " + correctAnswer + " out 4 questions correct!")
+            }
     })
+    hideQuestions();
+    stopTimer();
 }
 
 function showTriviaQuestions(){
     $(".trivia-questions").show();
+    $("#finished-button").show();
 }
 
 
@@ -59,4 +77,5 @@ function showTriviaQuestions(){
 showTriviaQuestions();
 hideQuestions();
 startTimerOnClick();
-factCheck();
+check();
+console.log($('input[name=question5]').val());

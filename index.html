@@ -16,7 +16,7 @@
         <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-3 text-center main">Totally Trivial Trivia</h1>
-            <h3 class = "text-center main">Once you click the button, you will have 60 seconds to answer the questions</h3>
+            <h3 class = "text-center main">Once you click the button, you will have 30 seconds to answer the questions</h3>
             <hr class="my-2">
             <p class="lead text-center">
             <a class="btn btn-primary btn-lg" id="start-game" role="button">Timer Start!</a>
@@ -32,9 +32,9 @@
         <div class="form-check form-check-inline">
             <label class="form-check-label">
                 <!-- Sindorei -->
-                <input class="form-check-input" type="radio" name="gender" value="Other"> Sin'dorei 
-                <input class="form-check-input" type="radio" name="gender" value="Other"> Kel'dorei
-                <input class="form-check-input" type="radio" name="gender" value="Other"> Quil'dorei
+                <input class="form-check-input correct-answer" type="radio" name="question1" value="Sin'dorei"> Sin'dorei 
+                <input class="form-check-input" type="radio" name="question1" value="Kel'dorei"> Kel'dorei
+                <input class="form-check-input" type="radio" name="question1" value="Quil'dorei"> Quil'dorei
             </label>
         </div>
       </h1>
@@ -45,8 +45,8 @@
         <div class="form-check form-check-inline">
             <label class="form-check-label">
                 <!-- false -->
-                <input class="form-check-input" type="radio" name="gender" value="Other"> True
-                <input class="form-check-input" type="radio" name="gender" value="Other"> False
+                <input class="form-check-input" type="radio" name="question2" value="True"> True
+                <input class="form-check-input" type="radio" name="question2" value="False"> False
             </label>
         </div>
       </h1>
@@ -57,8 +57,8 @@
         <div class="form-check form-check-inline">
             <label class="form-check-label">
                 <!-- True -->
-                <input class="form-check-input" type="radio" name="gender" value="Other"> True 
-                <input class="form-check-input" type="radio" name="gender" value="Other"> False
+                <input class="form-check-input" type="radio" name="question3" value="True"> True 
+                <input class="form-check-input" type="radio" name="question3" value="False"> False
             </label>
         </div>
       </h1>
@@ -69,19 +69,20 @@
         <div class="form-check form-check-inline">
             <label class="form-check-label">
                 <!-- Katrana Prestor -->
-                <input class="form-check-input" type="radio" name="gender" value="Other"> Lady Katrina Preston 
-                <input class="form-check-input" type="radio" name="gender" value="Other"> Lady Katrana Prestor
-                <input class="form-check-input" type="radio" name="gender" value="Other"> Magistrix Lauville Karnos
+                <input class="form-check-input" type="radio" name="question4" value="Lady Katrina Preston"> Lady Katrina Preston 
+                <input class="form-check-input" type="radio" name="question4" value="Lady Katrana Prestor"> Lady Katrana Prestor
+                <input class="form-check-input" type="radio" name="question14" value="Magistrix Lauville Karnos"> Magistrix Lauville Karnos
             </label>
         </div>
       </h1>
     </div>
+    <div class="container text-center" id="finished-button">
+        <a class="btn btn-primary btn-lg text-center" id="finished" role="button" value="finished">Finished</a>
+    </div>
+    
 
-    <div class="container mt-20">
-        <div class="row">
-            <h1 class="correct-count col-9">Correct:</h1>
-            <h1 class="incorrect-count col-3">Incorrect:</h1>
-        </div>
+    <div class="container text-center">
+            <h1 class="correct-count"></h1>
     </div>
     
     <!-- Optional JavaScript -->
