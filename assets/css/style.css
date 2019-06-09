@@ -14,6 +14,10 @@
     background-color: white
 }
 .jumbotron {
-    background-image: url("../images/lickking.jpeg");
+    background-image: url("../images/Teldrassil_Tree.jpg");
     background-size: cover;
+}
+.triviabuttons {
+    font-size: 30px;
+    font-weight: normal;
 }
